@@ -36,6 +36,7 @@ const help = `
     $ ${name} about      Display contents of about page
 
   Options:
+    --info         Display about page                                  [boolean]
     -h, --help     Show help                                           [boolean]
     -v, --version  Show version number                                 [boolean]
 
@@ -46,6 +47,7 @@ const help = `
 (async function program(options = getOptions(argv)) {
   const {
     command,
+    info: showInfo,
     version: showVersion,
     help: showHelp
   } = options;
@@ -53,7 +55,7 @@ const help = `
   if (showVersion) return console.log(pkg.version);
   if (showHelp) return console.log(help);
 
-  if (command === 'about') {
+  if (showInfo || command === 'about') {
     const info = await about();
     return console.log(format(info));
   }
@@ -68,6 +70,7 @@ function getOptions(argv) {
   return {
     ...flag(argv, 'h', 'help'),
     ...flag(argv, 'v', 'version'),
+    ...flag(argv, null, 'info'),
     command: (command || '').toLowerCase()
   };
 }
