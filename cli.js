@@ -36,7 +36,7 @@ const help = `
     $ ${name} about      Display contents of about page
 
   Options:
-    --info         Display about page                                  [boolean]
+    --info         Display https://haiku.ist/about page                [boolean]
     -h, --help     Show help                                           [boolean]
     -v, --version  Show version number                                 [boolean]
 

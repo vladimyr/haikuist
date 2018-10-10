@@ -2,4 +2,35 @@
 
 >Fetch haikus from https://haiku.ist from your terminal
 
-:construction: Work in progress
+## Installation
+
+```
+$ npm install -g haikuist
+```
+
+Or for a one-time run:
+
+```
+$ npx haikuist
+```
+
+## Usage
+
+```
+$ haikuist --help
+
+haikuist v1.0.0
+
+Usage:
+  $ haikuist [command]
+  $ haikuist latest     Fetch latest haiku
+  $ haikuist about      Display contents of about page
+
+Options:
+  --info         Display https://haiku.ist/about page                [boolean]
+  -h, --help     Show help                                           [boolean]
+  -v, --version  Show version number                                 [boolean]
+
+Homepage:     https://github.com/vladimyr/haikuist
+Report issue: https://github.com/vladimyr/haikuist/issues
+```
