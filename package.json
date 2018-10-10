@@ -1,5 +1,5 @@
 {
-  "name": "haikuist-cli",
+  "name": "haikuist",
   "version": "0.0.0",
   "description": "Fetch haikus from https://haiku.ist from your terminal",
   "main": "index.js",
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/vladimyr/haikuist-cli.git"
+    "url": "git://github.com/vladimyr/haikuist.git"
   },
   "author": {
     "email": "d.vladimyr@gmail.com",
@@ -26,9 +26,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vladimyr/haikuist-cli/issues"
+    "url": "https://github.com/vladimyr/haikuist/issues"
   },
-  "homepage": "https://github.com/vladimyr/haikuist-cli",
+  "homepage": "https://github.com/vladimyr/haikuist",
   "dependencies": {
     "got": "^9.2.2",
     "minidom": "^1.0.0",
