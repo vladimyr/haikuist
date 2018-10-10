@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "Fetch haikus from https://haiku.ist from your terminal",
   "main": "index.js",
-  "bin": {},
+  "bin": {
+    "haikuist": "cli.js"
+  },
   "scripts": {
     "lint": "eslint .",
     "test": "tape test.js | tap-spec",
@@ -30,8 +32,13 @@
   },
   "homepage": "https://github.com/vladimyr/haikuist",
   "dependencies": {
+    "ansi-bold": "^0.1.1",
+    "ansi-cyan": "^0.1.1",
+    "ansi-green": "^0.1.1",
+    "debug": "^4.1.0",
     "got": "^9.2.2",
-    "minidom": "^1.0.0",
+    "html-to-text": "^4.0.0",
+    "minimist": "^1.2.0",
     "url-join": "^4.0.0"
   },
   "devDependencies": {
