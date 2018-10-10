@@ -1,7 +1,7 @@
 'use strict';
 
 const debug = require('debug')('http');
-const html2text = require('html-to-text').fromString;
+const html2text = require('html2plaintext');
 const r = require('got');
 const urlJoin = require('url-join');
 

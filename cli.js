@@ -8,26 +8,30 @@ const bold = require('ansi-bold');
 const cyan = require('ansi-cyan');
 const green = require('ansi-green');
 const pkg = require('./package.json');
+const wrapAnsi = require('wrap-ansi');
 
 const DATE = '\uD83D\uDCC5';
 const OPEN_BOOK = '\uD83D\uDCD6';
 
 const name = Object.keys(pkg.bin)[0];
 const isMacOS = process.platform === 'darwin';
+const wrap = (text, { columns = 80, ...options } = {}) => {
+  return wrapAnsi(text, columns, { hard: true, ...options });
+};
 
 const flag = (argv, short, long) => ({ [long]: (short && argv[short]) || argv[long] });
 const toLocaleDate = timestamp => (new Date(timestamp)).toLocaleDateString();
 
 const date = timestamp => (isMacOS ? DATE : '@') + ' ' + toLocaleDate(timestamp);
 const link = url => (isMacOS ? `${OPEN_BOOK} ` : '') + cyan(url);
-const format = haiku => `
+const format = haiku => wrap(`
 ${bold(haiku.title)}
 
 ${haiku.content}
 
 ${date(haiku.createdAt)}
 ${link(haiku.link)}
-`;
+`);
 
 const help = `
   ${bold(name)} v${pkg.version}

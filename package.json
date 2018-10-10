@@ -37,9 +37,10 @@
     "ansi-green": "^0.1.1",
     "debug": "^4.1.0",
     "got": "^9.2.2",
-    "html-to-text": "^4.0.0",
+    "html2plaintext": "^2.1.0",
     "minimist": "^1.2.0",
-    "url-join": "^4.0.0"
+    "url-join": "^4.0.0",
+    "wrap-ansi": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "^5.4.0",
