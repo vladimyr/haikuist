@@ -16,6 +16,7 @@ const OPEN_BOOK = '\uD83D\uDCD6';
 const name = Object.keys(pkg.bin)[0];
 const isMacOS = process.platform === 'darwin';
 const wrap = (text, { columns = 80, ...options } = {}) => {
+  columns = Math.min(process.stdout.columns, columns);
   return wrapAnsi(text, columns, { hard: true, ...options });
 };
 
