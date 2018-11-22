@@ -5,15 +5,15 @@ const haikuist = require('./');
 
 test('fetch haikus', async t => {
   t.plan(2);
-  const { posts } = await haikuist.fetchPosts();
+  const { items: posts } = await haikuist.fetchPosts({ order: 'asc' });
   const [post] = posts;
   t.ok(posts.length > 0, 'haikus are fetched');
-  t.ok(post && post.id, `last haiku: id=${post.id}`);
+  t.equals(post && post.title, 'Possessive', `first haiku: "${post.title} [url=${post.link}]"`);
 });
 
 test('fetch latest haiku', async t => {
   t.plan(1);
-  const { posts } = await haikuist.fetchPosts();
+  const { items: posts } = await haikuist.fetchPosts();
   const latestPost = await haikuist.fetchLatest();
   t.equals(latestPost.id, posts[0].id, 'latest haiku fetched');
 });

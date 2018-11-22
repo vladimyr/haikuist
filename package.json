@@ -3,6 +3,11 @@
   "version": "1.2.0",
   "description": "Fetch haikus from https://haiku.ist from your terminal",
   "main": "index.js",
+  "config": {
+    "baseUrl": "https://haiku.ist",
+    "haikus": 2,
+    "aboutPage": 10
+  },
   "bin": {
     "haikuist": "cli.js"
   },
@@ -35,19 +40,17 @@
     "ansi-bold": "^0.1.1",
     "ansi-cyan": "^0.1.1",
     "ansi-green": "^0.1.1",
-    "debug": "^4.1.0",
-    "got": "^9.2.2",
     "html2plaintext": "^2.1.0",
     "minimist": "^1.2.0",
-    "url-join": "^4.0.0",
+    "wp-api-client": "^1.0.1",
     "wrap-ansi": "^4.0.0"
   },
   "devDependencies": {
-    "eslint": "^5.4.0",
-    "eslint-config-semistandard": "^12.0.1",
+    "eslint": "^5.9.0",
+    "eslint-config-semistandard": "^13.0.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-standard": "^4.0.0",
     "tap-spec": "^5.0.0",

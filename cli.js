@@ -7,6 +7,7 @@ const argv = require('minimist')(process.argv.slice(2));
 const bold = require('ansi-bold');
 const cyan = require('ansi-cyan');
 const green = require('ansi-green');
+const html2text = require('html2plaintext');
 const pkg = require('./package.json');
 const wrapAnsi = require('wrap-ansi');
 
@@ -21,14 +22,15 @@ const wrap = (text, { columns = 80, ...options } = {}) => {
 };
 
 const flag = (argv, short, long) => ({ [long]: (short && argv[short]) || argv[long] });
+const normalize = url => url.replace(/\/$/, '');
 const toLocaleDate = timestamp => (new Date(timestamp)).toLocaleDateString();
 
 const date = timestamp => (isMacOS ? DATE : '@') + ' ' + toLocaleDate(timestamp);
-const link = url => (isMacOS ? `${OPEN_BOOK} ` : '') + cyan(url);
+const link = url => (isMacOS ? `${OPEN_BOOK} ` : '') + cyan(normalize(url));
 const format = haiku => wrap(`
-${bold(haiku.title)}
+${bold(html2text(haiku.title))}
 
-${haiku.content}
+${html2text(haiku.content)}
 
 ${date(haiku.createdAt)}
 ${link(haiku.link)}
