@@ -67,7 +67,7 @@ Retrieve multiple haikus from [haiku.ist](https://haiku.ist) archive.
                              [arguments](https://developer.wordpress.org/rest-api/reference/posts/#arguments).
     -   `options.pageSize` **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum number of items to be returned in result set. (optional, default `10`)
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Response](#response)>** _Paginated listing of posts._
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Response](#response)&lt;[Post](#post)>>** _Paginated listing of haiku posts._
 
 ### fetchLatest
 
@@ -83,19 +83,19 @@ Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ### Page
 
--   **See: <https://www.npmjs.com/package/wp-api-client#item>**
+-   **See: <https://www.npmjs.com/package/wp-api-client#page>**
 
 WordPress API client `Page` response type.
 
-Type: WordPressClient.Item
+Type: WordPressClient.Page
 
 ### Post
 
--   **See: <https://www.npmjs.com/package/wp-api-client#item>**
+-   **See: <https://www.npmjs.com/package/wp-api-client#post>**
 
 WordPress API client `Post` response type.
 
-Type: WordPressClient.Item
+Type: WordPressClient.Post
 
 ### Response
 
@@ -103,4 +103,4 @@ Type: WordPressClient.Item
 
 WordPress API client response type used for paginated responses.
 
-Type: WordPressClient.Response
+Type: WordPressClient.Response&lt;T>

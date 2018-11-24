@@ -19,7 +19,7 @@ const count = () => client.countPosts({ categories: config.haikus });
  * @param  {Object} options WordPress REST API `/posts` endpoint
  *                          [arguments](https://developer.wordpress.org/rest-api/reference/posts/#arguments).
  * @param {Number} [options.pageSize=10] Maximum number of items to be returned in result set.
- * @return {Promise<Response>} _Paginated listing of posts._
+ * @return {Promise<Response<Post>>} _Paginated listing of haiku posts._
  */
 const fetchPosts = options => client.fetchPosts({ ...options, categories: config.haikus });
 
@@ -57,17 +57,17 @@ function random(max) {
 
 /**
  * WordPress API client `Page` response type.
- * @typedef {WordPressClient.Item} Page
- * @see https://www.npmjs.com/package/wp-api-client#item
+ * @typedef {WordPressClient.Page} Page
+ * @see https://www.npmjs.com/package/wp-api-client#page
  */
 /**
  * WordPress API client `Post` response type.
- * @typedef {WordPressClient.Item} Post
- * @see https://www.npmjs.com/package/wp-api-client#item
+ * @typedef {WordPressClient.Post} Post
+ * @see https://www.npmjs.com/package/wp-api-client#post
  */
 
 /**
  * WordPress API client response type used for paginated responses.
- * @typedef {WordPressClient.Response} Response
+ * @typedef {WordPressClient.Response<T>} Response @template T
  * @see https://www.npmjs.com/package/wp-api-client#response
  */
