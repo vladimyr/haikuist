@@ -42,6 +42,7 @@
     "ansi-green": "^0.1.1",
     "html2plaintext": "^2.1.0",
     "minimist": "^1.2.0",
+    "os-locale": "^3.0.1",
     "wp-api-client": "^1.0.1",
     "wrap-ansi": "^4.0.0"
   },
