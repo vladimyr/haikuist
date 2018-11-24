@@ -49,13 +49,13 @@ Or for a one-time run:
 
 Retrieve contents of [haiku.ist/about](https://haiku.ist/about/) page.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Page](#page)>** _About page._
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Page](#page)>** About page.
 
 ### count
 
 Get total number of haikus.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)>** _Total number of haikus available._
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)>** Total number of haikus available.
 
 ### fetchPosts
 
@@ -67,19 +67,19 @@ Retrieve multiple haikus from [haiku.ist](https://haiku.ist) archive.
                              [arguments](https://developer.wordpress.org/rest-api/reference/posts/#arguments).
     -   `options.pageSize` **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum number of items to be returned in result set. (optional, default `10`)
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Response](#response)&lt;[Post](#post)>>** _Paginated listing of haiku posts._
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Response](#response)&lt;[Post](#post)>>** Paginated listing of haiku posts.
 
 ### fetchLatest
 
 Fetch latest haiku.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Post](#post)>** _Latest post containing haiku._
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Post](#post)>** Latest post containing haiku.
 
 ### fetchRandom
 
 Fetch random haiku from [haiku.ist](https://haiku.ist) archive.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Post](#post)>** _Random post containing haiku._
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Post](#post)>** Random post containing haiku.
 
 ### Page
 

@@ -6,12 +6,12 @@ const client = new WordPressClient(config.baseUrl);
 
 /**
  * Retrieve contents of [haiku.ist/about](https://haiku.ist/about/) page.
- * @return {Promise<Page>} _About page._
+ * @return {Promise<Page>} About page.
  */
 const about = () => client.fetchPage(config.aboutPage);
 /**
  * Get total number of haikus.
- * @return {Promise<Number>} _Total number of haikus available._
+ * @return {Promise<Number>} Total number of haikus available.
  */
 const count = () => client.countPosts({ categories: config.haikus });
 /**
@@ -19,7 +19,7 @@ const count = () => client.countPosts({ categories: config.haikus });
  * @param  {Object} options WordPress REST API `/posts` endpoint
  *                          [arguments](https://developer.wordpress.org/rest-api/reference/posts/#arguments).
  * @param {Number} [options.pageSize=10] Maximum number of items to be returned in result set.
- * @return {Promise<Response<Post>>} _Paginated listing of haiku posts._
+ * @return {Promise<Response<Post>>} Paginated listing of haiku posts.
  */
 const fetchPosts = options => client.fetchPosts({ ...options, categories: config.haikus });
 
@@ -33,7 +33,7 @@ module.exports = {
 
 /**
  * Fetch latest haiku.
- * @return {Promise<Post>} _Latest post containing haiku._
+ * @return {Promise<Post>} Latest post containing haiku.
  */
 async function fetchLatest() {
   const { items: posts } = await fetchPosts({ pageSize: 1 });
@@ -42,7 +42,7 @@ async function fetchLatest() {
 
 /**
  * Fetch random haiku from [haiku.ist](https://haiku.ist) archive.
- * @return {Promise<Post>} _Random post containing haiku._
+ * @return {Promise<Post>} Random post containing haiku.
  */
 async function fetchRandom() {
   const max = await count();
