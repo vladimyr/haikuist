@@ -57,20 +57,17 @@ function random(max) {
 
 /**
  * WordPress API client `Page` response type.
- * @name Page
- * @alias Page WordPressClient.Item
+ * @typedef {WordPressClient.Item} Page
  * @see https://www.npmjs.com/package/wp-api-client#item
  */
 /**
  * WordPress API client `Post` response type.
- * @name Post
- * @alias Post WordPressClient.Item
+ * @typedef {WordPressClient.Item} Post
  * @see https://www.npmjs.com/package/wp-api-client#item
  */
 
 /**
  * WordPress API client response type used for paginated responses.
- * @name Response
- * @alias Response WordPressClient.Response
+ * @typedef {WordPressClient.Response} Response
  * @see https://www.npmjs.com/package/wp-api-client#response
  */

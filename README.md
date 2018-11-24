@@ -87,14 +87,20 @@ Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 WordPress API client `Page` response type.
 
+Type: WordPressClient.Item
+
 ### Post
 
 -   **See: <https://www.npmjs.com/package/wp-api-client#item>**
 
 WordPress API client `Post` response type.
 
+Type: WordPressClient.Item
+
 ### Response
 
 -   **See: <https://www.npmjs.com/package/wp-api-client#response>**
 
 WordPress API client response type used for paginated responses.
+
+Type: WordPressClient.Response
