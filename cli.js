@@ -3,7 +3,6 @@
 'use strict';
 
 const { about, fetchLatest, fetchRandom } = require('./');
-const argv = require('minimist')(process.argv.slice(2));
 const bold = require('ansi-bold');
 const cyan = require('ansi-cyan');
 const green = require('ansi-green');
@@ -17,8 +16,6 @@ const OPEN_BOOK = '\uD83D\uDCD6';
 
 const name = Object.keys(pkg.bin)[0];
 const isMacOS = process.platform === 'darwin';
-
-const flag = (argv, short, long) => ({ [long]: (short && argv[short]) || argv[long] });
 
 const formatDate = timestamp => (new Date(timestamp)).toLocaleDateString(locale);
 const normalize = url => url.replace(/\/$/, '');
@@ -52,35 +49,26 @@ const help = `
   Report issue: ${green(pkg.bugs.url)}
 `;
 
-(async function program(options = getOptions(argv)) {
-  const {
-    command,
-    info: showInfo,
-    version: showVersion,
-    help: showHelp
-  } = options;
+const options = require('minimist-options')({
+  help: { type: 'boolean', alias: 'h' },
+  version: { type: 'boolean', alias: 'v' },
+  info: { type: 'boolean' }
+});
+const argv = require('minimist')(process.argv.slice(2), options);
 
-  if (showVersion) return console.log(pkg.version);
-  if (showHelp) return console.log(help);
+(async function program([command = ''], flags) {
+  if (flags.version) return console.log(pkg.version);
+  if (flags.help) return console.log(help);
 
-  if (showInfo || command === 'about') {
+  command = command.toLowerCase();
+  if (flags.info || command === 'about') {
     const info = await about();
     return console.log(format(info));
   }
 
   const haiku = await ((command === 'latest') ? fetchLatest() : fetchRandom());
   console.log(format(haiku));
-}());
-
-function getOptions(argv) {
-  const [command] = argv._;
-  return {
-    ...flag(argv, 'h', 'help'),
-    ...flag(argv, 'v', 'version'),
-    ...flag(argv, null, 'info'),
-    command: (command || '').toLowerCase()
-  };
-}
+}(argv._, argv));
 
 function wrap(text, { columns = 80, ...options } = {}) {
   columns = Math.min(process.stdout.columns, columns);
